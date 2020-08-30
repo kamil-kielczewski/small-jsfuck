@@ -1,5 +1,5 @@
 # small-jsfuck
-Generate small jsf code
+Generate small jsf code - [RUN it HERE](https://kamil-kielczewski.github.io/small-jsfuck/index.html)
 
 ## Goal
 
