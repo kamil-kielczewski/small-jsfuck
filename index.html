@@ -32,14 +32,14 @@ function convert() {
   let overhead = 23423;
   let src = code.value;
   let result = compileToSmallJSFuck(src)
-  jsfCode.innerText = result.output;
+  jsfCode.innerText = result;
   jsfLength.innerText=` Source length: ${src.length}, jsf-code length: ${result.length - overhead}, overhead: ${overhead}, total: ${result.length}`
 }
 
 function run() {
     let src = code.value;
     let result = compileToSmallJSFuck(src)
-    eval(result.output);
+    eval(result);
 }
 
     </script>
