@@ -49,7 +49,7 @@ after (jsf) optimalization it looks like follows
 []["flat"]["constructor"](MIDDLE_STEP_CODE["split"](true)["join"](3)["split"](false)["join"](2)["match"]([]["flat"]["constructor"]("return/..../g")())["map"]([]["flat"]["constructor"]("return f=>String.fromCharCode(parseInt(f,4))")())["join"]([]))()
 ```
 
-in above code we need to convert all strings (like "flat", "constructor",...) to jsf (it will gives ~23kB overhead), paste MIDDLE_STEP_CODE and we have workig jsf code
+in above code finally we need to convert all strings (like "flat", "constructor",...) to jsf, true/fale and nubers, and paste MIDDLE_STEP_CODE to get final result. Above run and inverse conversion code gives ~23kB overhead.
 
 ## Benefits
 
