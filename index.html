@@ -45,7 +45,7 @@ function convertToText() {
   let src = code.value;
   let result = compileToSmallJSFuck(src,true)
   jsfCode.innerText = result;
-  jsfLength.innerText=` Source length: ${src.length}, jsf-code length: ${result.length - overhead}, overhead: ${overhead}, total: ${result.length}`
+  jsfLength.innerText=` Source length: ${src.length}, jsf-covnerted-code length: ${result.length - overhead}, overhead: ${overhead}, total: ${result.length}`
 }
 
 function run() {
