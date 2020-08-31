@@ -22,7 +22,7 @@ The idea of converting JS code to only 6 characters `[]()!+` was implementend in
 3 --> true    jsf:   +!![]
 ```
 
-e.g. `"c" --> "1203" --> "1false0true"`
+  e.g. `"c" --> "1203" --> "1false0true"`
 
 3. Encode such mapped values to jsf by add `[]` to beginning and join by `+` e.g. 
 
@@ -35,7 +35,7 @@ Steps 2 and 3 are done by following code which produce `MIDDLE_STEP_CODE= []+(+!
 ```js
 "[]"+ "1203".replace(/0/g,"+(+[])").replace(/1/g,"+(+!![])").replace(/2/g,"+![]").replace(/3/g,"+!![]");
 ```
-(whe add `"[]"` at the beginnig only on first character in whole code string)
+  (whe add `"[]"` at the beginnig only on first character in whole code string)
 
 4. Include additional code (STUB) to make inversion of MIDDLE_STEP_CODE and run it:
 
@@ -43,13 +43,13 @@ Steps 2 and 3 are done by following code which produce `MIDDLE_STEP_CODE= []+(+!
 Function((MIDDLE_STEP_CODE).replace(/true/g,3).replace(/false/g, 2).match(/..../g).map(x=>String.fromCharCode(parseInt(x,4))).join(""))()
 ```
 
-after (jsf) optimalization it looks like follows
+  after (jsf) optimalization it looks like follows
 
 ```js
 []["flat"]["constructor"](MIDDLE_STEP_CODE["split"](true)["join"](3)["split"](false)["join"](2)["match"]([]["flat"]["constructor"]("return/..../g")())["map"]([]["flat"]["constructor"]("return f=>String.fromCharCode(parseInt(f,4))")())["join"]([]))()
 ```
 
-in above code finally we need to convert all strings (like "flat", "constructor",...) to jsf, true/fale and nubers, and paste MIDDLE_STEP_CODE to get final result. Above run and inverse conversion code gives ~23kB overhead.
+  in above code finally we need to convert all strings (like "flat", "constructor",...) to jsf, true/fale and nubers, and paste MIDDLE_STEP_CODE to get final result. Above run and inverse conversion code gives ~23kB overhead.
 
 ## Benefits
 
