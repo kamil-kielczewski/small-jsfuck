@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
-    <style>pre {white-space: pre-wrap;} textarea{ width: 50%; height: 200px}</style>
+    <style>pre {white-space: pre-wrap;} textarea{ width: 100%; height: 200px}</style>
   </head>
   <body>
     <div><a href="https://github.com/kamil-kielczewski/small-jsfuck">This project on GitHub</a></div>
@@ -16,7 +16,7 @@
     <button onclick=convertToText()>convert to string</button>    
     <button onclick=run()>run</button>
     <div id="jsfLength"></div>
-    <pre id="jsfCode"></pre>
+    <textarea id="jsfCode"></textarea>
     <script>
 
 function compileToSmallJSFuck(src, asText=false) {
@@ -36,7 +36,7 @@ function convert() {
   let overhead = 23423;
   let src = code.value;
   let result = compileToSmallJSFuck(src)
-  jsfCode.innerText = result;
+  jsfCode.value = result;
   jsfLength.innerText=` Source length: ${src.length}, covnerted-jsf-code length: ${result.length - overhead}, overhead: ${overhead}, total: ${result.length}`
 }
       
@@ -44,7 +44,7 @@ function convertToText() {
   let overhead = 23423-595;
   let src = code.value;
   let result = compileToSmallJSFuck(src,true)
-  jsfCode.innerText = result;
+  jsfCode.value = result;
   jsfLength.innerText=` Source length: ${src.length}, covnerted-jsf-code length: ${result.length - overhead}, overhead: ${overhead}, total: ${result.length}`
 }
 
