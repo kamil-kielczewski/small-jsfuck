@@ -1,4 +1,4 @@
-export function compileToSmallJSFuck(src, asText=false) {
+function compileToSmallJSFuck(src, asText=false) {
   let encodeBase4 = str => [...str].map(l=>l.charCodeAt(0).toString(4).padStart(4,0)).join``;
   let encodeJSF = b4str => "[]"+b4str.replace(/0/g,"+(+[])").replace(/1/g,"+(+!![])").replace(/2/g,"+![]").replace(/3/g,"+!![]");
   let srcJSF = encodeJSF(encodeBase4(src))
