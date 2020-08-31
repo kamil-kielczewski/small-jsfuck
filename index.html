@@ -8,10 +8,11 @@
   <body>
     <div><a href="https://github.com/kamil-kielczewski/small-jsfuck">This project on GitHub</a></div>
     <h1>Create small JSFuck code</h1>
-    <div>Example from <a href="https://codegolf.stackexchange.com/a/193900/88163">here</a> 
+    <div>Compiler tested (31.08.2020) on Chrome 84, Firefox 79, Safari 13 and <a href="https://repl.it/languages/nodejs">node.js 12.16.1</a></div>
+    <small>Example from <a href="https://codegolf.stackexchange.com/a/193900/88163">here</a> 
         (31.08.2020: <a href="jsfuck.com">jsfuck.com</a> produce: 247545 chars of code, 
          <a href="https://syllab.fr/projets/experiments/xcharsjs/6chars.html">Xchars.js</a> produce 72658 chars of code) 
-    </div>
+    </small>
     <div><textarea id="code">c=512;for(p=i='';j=x=y=0,++i<=c*c;p+=9*c+9*j)while(x*x+y*y<4&&++j-c)[x,y]=[x*x-y*y+i%c/128-2,2*x*y+i/c/128-2];document.write("<img src=data:;base64,Qk0bAAwAAAAAABsAAAAMAAAAAAIAAgEAGAAA"+p+">")</textarea></div>
     <button onclick=convert()>convert to executable</button>
     <button onclick=convertToText()>convert to string</button>    
