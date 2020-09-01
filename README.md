@@ -36,9 +36,11 @@ Function((MIDDLE_STEP_CODE).replace(/true/g,3).replace(/false/g, 2).match(/..../
 ```
   after (jsf) optimalization it looks like follows
 ```js
-[]["flat"]["constructor"](MIDDLE_STEP_CODE["split"](true)["join"](3)["split"](false)["join"](2)["match"]([]["flat"]["constructor"]("return/..../g")())["map"]([]["flat"]["constructor"]("return f=>String.fromCharCode(parseInt(f,4))")())["join"]([]))()
+[]["flat"]["constructor"](MIDDLE_STEP_CODE)["split"](true)["join"](3)["split"](false)["join"](2)["match"]([]["flat"]["constructor"]("return/..../g")())["map"]([]["flat"]["constructor"]("return f=>String.fromCharCode(parseInt(f,4))")())["join"]([]))()
 ```
   in above code finally we need to convert all strings (like "flat", "constructor",...) to jsf, true/fale and nubers, and paste MIDDLE_STEP_CODE to get final result. Above run and inverse conversion code gives ~23kB overhead.
+
+If in above long line of code we remove code before `(MIDDLE_STEP_CODE)` and also remove last `)()` (at the end of line) - then after run this we get deconverted string (which will be not executed)
 
 ## Benefits
 
