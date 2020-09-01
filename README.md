@@ -46,5 +46,12 @@ If in above long line of code we remove code before `(MIDDLE_STEP_CODE)` and als
 
 In this way each character change to 4 digits, each digit change to 4-8 jsf characters. So in worst case each character is converted to `4*8=32` jsf characters, in best case it is converted to `4*4=16` characters. So 1kB of code will grow to 16-32kB after conversion to jsf. It is quite efficient if we compare this to direct jsf conversion.
 
+## Credits
+
+Big thanks below StackOverflow comunity members who help me solve jsfuck problems during write deconverter
+
+* [trincot](https://stackoverflow.com/users/5459839/trincot) for answers: [1](https://stackoverflow.com/a/63603113/860099), [2](https://stackoverflow.com/a/63604570/860099), [3](https://stackoverflow.com/a/63605950/860099) and [4](https://stackoverflow.com/a/63636251/860099)
+* [Siguza](https://stackoverflow.com/users/2302862/siguza) for answer [1](https://stackoverflow.com/a/63675158/860099)
+* [Jonas Wilms](https://stackoverflow.com/users/5260024/jonas-wilms) for answer [1](https://stackoverflow.com/a/63618378/860099)
 
 
