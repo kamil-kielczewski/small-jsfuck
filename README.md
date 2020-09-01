@@ -48,7 +48,7 @@ In this way each character change to 4 digits, each digit change to 4-8 jsf char
 
 ## Credits
 
-Thanks to [aemkei](https://github.com/aemkei/jsfuck) for creating [jsfuck](http://www.jsfuck.com/), and for [hazzik](https://github.com/hazzik) who kindly aswer my question on issues in jsfuck repo (like [this](https://github.com/aemkei/jsfuck/issues/100#issuecomment-679378602))
+Thanks to [aemkei](https://github.com/aemkei/jsfuck) for creating [jsfuck](http://www.jsfuck.com/), and for [hazzik](https://github.com/hazzik) who kindly aswer my questions in issues in jsfuck repo (like [this](https://github.com/aemkei/jsfuck/issues/100#issuecomment-679378602))
 
 Big thanks below StackOverflow comunity members who help me solve jsfuck problems during deconverter writing
 
