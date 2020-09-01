@@ -3,7 +3,7 @@ Generate small jsf code - [RUN it HERE](https://kamil-kielczewski.github.io/smal
 
 ## Goal
 
-The idea of converting JS code to only 6 characters `[]()!+` was implementend in [JSFuck](https://github.com/aemkei/jsfuck) for theoretical reasons. This project was created to to make jsfuck more practical by decrease size of generated code.
+The idea of converting JS code to only 6 characters `[]()!+` was implementend in [JSFuck](https://github.com/aemkei/jsfuck) for theoretical reasons. This project was created to make jsfuck more practical by decrease size of generated code.
 
 ## Algorithm
 
