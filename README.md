@@ -46,6 +46,50 @@ If in above long line of code we remove code before `(MIDDLE_STEP_CODE)` and als
 
 In this way each character change to 4 digits, each digit change to 4-8 jsf characters. So in worst case each character is converted to `4*8=32` jsf characters, in best case it is converted to `4*4=16` characters. So 1kB of code will grow to 16-32kB after conversion to jsf. It is quite efficient if we compare this to direct jsf conversion.
 
+## Bonus - additional info about jsfuck
+
+### Get arbitrary character - at lower level
+
+Belowe text came from [this my pull request](https://github.com/aemkei/jsfuck/pull/111) to jsfuck repo
+
+You can use following [technique](https://stackoverflow.com/a/63850312/860099) 
+(is based on that JS objects can have defined fields without quotes) to get `A-Za-z$_` and many utf8 characters
+
+```js
+Function("return Object.entries({\\u0043:false})")()[0][0]
+```
+
+after partial transformation it looks like
+
+```js
+[]["flat"]["constructor"]("return"+" "+"Object"+"."+"entries"+"("+"{"+"\\"+"u0043"+":"+false+"}"+")")()[0][0]
+```
+This allows to get upper-case characters witout using buil-in methods like: `escape, unescape, italics, fontcolor...` but by using more 'low-level" language features - but we also need use following codes to get RegExp string, shlash, colon and finlly backslash
+
+```js
+   // "RegExp" string: (""+"".matchAll()).split(" ")[1]
+  ([]+("")["matchAll"]())["split"](" ")[1]
+
+  // ":" - colon: (Function("return RegExp")()()+"")[3]
+  ([]["flat"]["constructor"]("return "+([]+("")["matchAll"]())["split"](" ")[1])()()+[])[3]
+
+  // "/" - slash: (Function("return RegExp")()()+"")[0]
+  ([]["flat"]["constructor"]("return "+([]+("")["matchAll"]())["split"](" ")[1])()()+[])[0]
+    
+  // "\" - backslash: (Function("return RegExp(RegExp()+[])")()+[])[1]
+  //       optimized: (Function(("return "+false+"("+false+"()+[])").split(false).join("RegExp"))()+[])[1]
+  ([]["flat"]["constructor"](("return "+false+"("+false+"()+[])")["split"](false)["join"](([]+("")["matchAll"]())["split"](" ")[1]))()+[])[1]
+```
+
+Using this we can chave access to any character by `String.fromCharCode` - e.g for `"!"` (code 33):
+
+```js
+String[Function("return Object.entries({from\\u0043har\\u0043ode:false})")()[0][0]](33)
+
+// after optimization:
+String[Function(("return Object.entries({from"+false+"har"+false+"ode"+":")["split"](false)["join"]("\\u0043")+false+"})")()[0][0]](33)
+```
+
 ## Credits
 
 Thanks to [aemkei](https://github.com/aemkei/jsfuck) for creating [jsfuck](http://www.jsfuck.com/), and for [hazzik](https://github.com/hazzik) who kindly aswer my questions in issues in jsfuck repo (like [this](https://github.com/aemkei/jsfuck/issues/100#issuecomment-679378602))
